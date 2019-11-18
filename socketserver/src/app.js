@@ -30,7 +30,7 @@ io.on("connection", socket => {
   });
   
   socket.on("typingComment", flag => {
-    socket.emit("typing", flag);
+    io.emit("typing", flag);
   });
   
   io.emit("comments", comments);
