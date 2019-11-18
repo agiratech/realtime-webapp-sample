@@ -1,0 +1,48 @@
+<div class="comment-block">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisi nisl, vehicula non justo vitae, iaculis
+        suscipit purus. Sed sed mattis neque. Suspendisse ornare tincidunt justo. Fusce tincidunt, orci sed consequat
+        auctor, ligula arcu vestibulum sapien, vitae tempus lectus eros eu quam. Pellentesque habitant morbi tristique
+        senectus et netus et malesuada fames ac turpis egestas. Vivamus vehicula vestibulum risus ac pellentesque. Cras
+        varius, ligula vel tempus aliquet, arcu lacus pretium arcu, vitae faucibus arcu ex ac massa. In a suscipit nisl,
+        id gravida lacus.
+        <br><br>
+        Comment your thought
+    </p>
+    <div>
+        <ul class="comment-li">
+            <li  *ngFor='let comment of comments | async | keyvalue'>
+            <p>
+                Name: {{comment.value.name}}
+                <br>
+                {{comment.value.comment}}
+            </p>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf='typing | async'>Someone Typing...</div>
+    <div>
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm)">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>
+                        Name:
+                    </label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>
+                        Comment:
+                    </label>
+                    <textarea [(ngModel)]="description" (keyup)='typingComments(true)'  (blur)='typingComments(false)' class="form-control" formControlName="comment">
+                </textarea>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

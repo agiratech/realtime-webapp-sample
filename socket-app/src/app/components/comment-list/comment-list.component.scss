@@ -1,0 +1,33 @@
+.comment-block {
+    width: 500px;
+    margin: auto;
+    p {
+        font-size: 15px;
+        color: #000;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .form-row {
+        padding-bottom: 10px;
+        .form-group {
+            label {
+                width: 100px;
+                display: inline-block;
+            }
+            textarea {
+               width: 100%;
+                height: 56px;
+                display: block;
+                margin-top: 10px;
+
+            }
+        }
+    }
+    .comment-li {
+        padding: 0;
+        li {
+            list-style: none;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+    
+}
